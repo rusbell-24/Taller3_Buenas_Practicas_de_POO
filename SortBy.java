@@ -4,10 +4,41 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SortBy extends SongsLibrary{
-    public ArrayList example;
+    List<ArrayList<String>> libraryToShow;
 
+    public void setLibraryToShowToSongList(){
+        this.libraryToShow = new ArrayList<>(getSongList());
+
+    }
+
+    public void setLibraryToShowToSalsa(){
+        this.libraryToShow = new ArrayList<>(salsa);
+    }
+    public void setLibraryToShowToRock(){
+        this.libraryToShow = new ArrayList<>(rockEnEspañol);
+    }
+    public void setLibraryToShowToUrbano(){
+        this.libraryToShow = new ArrayList<>(urbanoLatino);
+    }
+    public void setLibraryToShowToCustomList(List<ArrayList<String>> customList){
+        this.libraryToShow =  customList;
+    }
+
+    public void setToAlphabeticNames(){
+        this.a = 1;
+    }
+    public void setToAlphabeticGenders(){
+        this.a = 2;
+    }
+    public void setToSongDuration(){
+        this.a = 5;
+    }
+    public void setToYear(){
+        this.a = 7;
+    }
 
     /**
      * a = Variable para definir que deseas organizar
@@ -18,20 +49,24 @@ public class SortBy extends SongsLibrary{
      */
     public int a = 5;
 
+
+
     public void ascendentSort(){
 
 
         /**
          * si se quiere poner el codigo en la clase abstracta de SongLibrary solo remplaza el getSongList por songList en la linea 23 yn en la 30
          */
-        Collections.sort(getSongList(), new Comparator<ArrayList<String>>() {
+        Collections.sort(libraryToShow, new Comparator<ArrayList<String>>() {
             @Override
             public int compare(ArrayList<String> o1, ArrayList<String> o2) {
 
                 return o1.get(a).compareTo(o2.get(a));
             }
         });
-        System.out.println(getSongList());
+        for (ArrayList song: libraryToShow) {
+            System.out.println(song);
+        }
 
 
     }
@@ -40,40 +75,56 @@ public class SortBy extends SongsLibrary{
      * Organizar por genero, se crea un array list por cada genero y se añaden las canciones que correspondan
      * Si quieres ponerlo en la clase abstracta Library solo cambia el Getter de songlist por songList como nombre del array
      */
+    List<ArrayList<String>> rockEnEspañol = new ArrayList<>();
+    List<ArrayList<String>> salsa = new ArrayList<>();
+    List<ArrayList<String>> urbanoLatino = new ArrayList<>();
     public void sortByGender() {
-        List<ArrayList<String>> rockEnEspañol = new ArrayList<>();
-        List<ArrayList<String>> salsa = new ArrayList<>();
-        List<ArrayList<String>> urbanoLatino = new ArrayList<>();
 
-        for (int i = 0; i < getSongList().size(); i++) {
-            switch (getSongList().get(i).get(2)) {
+
+        for (int i = 0; i < libraryToShow.size(); i++) {
+            switch (libraryToShow.get(i).get(2)) {
                 case "Rock En Español":
-                    rockEnEspañol.add(getSongList().get(i));
+                    rockEnEspañol.add(libraryToShow.get(i));
                     //System.out.print(songList.get(i) + " ");
                     //System.out.println();
                     break;
                 case "Salsa":
                     //System.out.print("Salsitaaaaa <3" + " ");
                     //System.out.println();
-                    salsa.add(getSongList().get(i));
+                    salsa.add(libraryToShow.get(i));
                     break;
                 case "Urbano latino":
                     //System.out.print("Utbano latino <3" + " ");
                     //System.out.println();
-                    urbanoLatino.add(getSongList().get(i));
+                    urbanoLatino.add(libraryToShow.get(i));
                     break;
 
                 //System.out.print(songList.get(i).get(2) + " ");
                 //System.out.println();
             }
         }
-        System.out.print(salsa + " ");
-        System.out.println();
+
     }
+
+    public List<ArrayList<String>> getLibraryToShow() {
+        return libraryToShow;
+    }
+
+    public void setLibraryToShow(List<ArrayList<String>> libraryToShow) {
+        this.libraryToShow = libraryToShow;
+    }
+
 
     @Override
     public void playSongList() {
-
+        for (int i = 0; i < libraryToShow.size(); i++) {
+            System.out.println( "Reproduciendo..." + libraryToShow.get(i));
+            try {
+                Thread.sleep(15000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
