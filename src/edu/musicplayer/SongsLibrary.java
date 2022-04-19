@@ -3,11 +3,28 @@ package edu.musicplayer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * La clase abstracta SongsLibrary ofrece una biblioteca de canciones, construida mediante
+ * un array de 15 arrays internos, cada array interno representa una canción y cada canción
+ * tiene la siguiente estructura de atributos [Id, titulo, genero, caratula, descripción, duración, fecha].
+ * <p>
+ * Finalmente, cada clase hija de esta clase abstracta tendrá acceso a la librería de canciones mediante el método getSongList()
+ * y además, deberá implementar el método playSongList().
+ *
+ * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
+ * @version: 1.0.0 16-04-2022
+ * @since: 1.0.0
+ */
 public abstract class SongsLibrary {
 
+    //Campos de la clase
     private final List<ArrayList<String>> songList = new ArrayList<>();
 
-    public SongsLibrary (){
+    /**
+     * Constructor para el array de 15 canciones
+     */
+    public SongsLibrary() {
+
         ArrayList<String> song1 = new ArrayList<>();
         ArrayList<String> song2 = new ArrayList<>();
         ArrayList<String> song3 = new ArrayList<>();
@@ -144,7 +161,6 @@ public abstract class SongsLibrary {
         song15.add("3.46");
         song15.add("08/08/2010");
 
-
         this.songList.add(song1);
         this.songList.add(song2);
         this.songList.add(song3);
@@ -162,9 +178,24 @@ public abstract class SongsLibrary {
         this.songList.add(song15);
     }
 
+    /**
+     * Este método permite a las demás clases acceder al arraylist de canciones (biblioteca de canciones).
+     *
+     * @return un arraylist con 15 arrayslist de String en su interior.
+     * Cada arraylist interno representa una canción y tiene la siguiente estructura de atributos
+     * por canción [Id, titulo, genero, caratula, descripción, duración, fecha].
+     * @author Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
+     * @since 1.0.0
+     */
     public List<ArrayList<String>> getSongList() {
         return songList;
     }
 
+    /**
+     * Este método ofrece al usuario la funcionalidad de poder reproducir su lista de canciones.
+     *
+     * @author Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
+     * @since 1.0.0
+     */
     public abstract void playSongList();
 }
