@@ -7,24 +7,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SortBy extends SongsLibrary{
-    List<ArrayList<String>> libraryToShow;
+    List<ArrayList<String>> libraryToShow = new ArrayList<>();
 
     public void setLibraryToShowToSongList(){
-        this.libraryToShow = new ArrayList<>(getSongList());
+        this.libraryToShow = getSongList();
 
     }
 
     public void setLibraryToShowToSalsa(){
-        this.libraryToShow = new ArrayList<>(salsa);
+        this.libraryToShow = salsa;
     }
     public void setLibraryToShowToRock(){
-        this.libraryToShow = new ArrayList<>(rockEnEspañol);
+        this.libraryToShow = rockEnEspañol;
     }
     public void setLibraryToShowToUrbano(){
-        this.libraryToShow = new ArrayList<>(urbanoLatino);
-    }
-    public void setLibraryToShowToCustomList(List<ArrayList<String>> customList){
-        this.libraryToShow =  customList;
+        this.libraryToShow = urbanoLatino;
     }
 
     public void setToAlphabeticNames(){
@@ -37,7 +34,7 @@ public class SortBy extends SongsLibrary{
         this.a = 5;
     }
     public void setToYear(){
-        this.a = 7;
+        this.a = 6;
     }
 
     /**
@@ -127,14 +124,5 @@ public class SortBy extends SongsLibrary{
         }
     }
 
-    /**
-     * para recorrer todo el array list de 2D
-     *
-     for (int i = 0; i < songList.size(); i++) {
-     for (int j = 0; j < songList.get(i).size(); j++) {
-     System.out.print(songList.get(i).get(j) + " ");
-     }
-     System.out.println();
-     }
-     **/
+
 }
