@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SortBy extends SongsLibrary{
+public class SortBy extends SongsLibrary {
     List<ArrayList<String>> libraryToShow = new ArrayList<>();
 
     public void setLibraryToShowToSongList(){
@@ -106,11 +106,6 @@ public class SortBy extends SongsLibrary{
     public List<ArrayList<String>> getLibraryToShow() {
         return libraryToShow;
     }
-
-    public void setLibraryToShow(List<ArrayList<String>> libraryToShow) {
-        this.libraryToShow = libraryToShow;
-    }
-
 
     @Override
     public void playSongList() {

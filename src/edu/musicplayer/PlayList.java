@@ -11,12 +11,16 @@ public class PlayList extends SongsLibrary {
 
     public void addSongs(String namePlayList, ArrayList<String> idSongs, List<ArrayList<String>> dinamicarray){
         customList.add(namePlayList);
-        for (String id : idSongs) {
-            for (ArrayList song: dinamicarray) {
-                if (song.get(0).equals(id)){
-                    customList.add(song);
+        try {
+            for (String id : idSongs) {
+                for (ArrayList song : dinamicarray) {
+                    if (song.get(0).equals(id)) {
+                        customList.add(song);
+                    }
                 }
             }
+        }catch(NullPointerException e){
+            throw new NullPointerException();
         }
     }
 
@@ -34,7 +38,5 @@ public class PlayList extends SongsLibrary {
                 e.printStackTrace();
             }
         }
-
     }
-
 }

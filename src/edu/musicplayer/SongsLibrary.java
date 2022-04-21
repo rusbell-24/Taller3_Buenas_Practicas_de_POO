@@ -3,7 +3,7 @@ package edu.musicplayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SongsLibrary {
+public abstract class SongsLibrary{
 
     private final List<ArrayList<String>> songList = new ArrayList<>();
 
