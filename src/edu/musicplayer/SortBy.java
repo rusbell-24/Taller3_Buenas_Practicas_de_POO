@@ -112,7 +112,7 @@ public class SortBy extends SongsLibrary{
      *
      *
      */
-     public void ascendentSort(){
+    public void ascendentSort(){
         Collections.sort(libraryToShow, new Comparator<ArrayList<String>>() {
             @Override
             public int compare(ArrayList<String> o1, ArrayList<String> o2) {
@@ -198,7 +198,7 @@ public class SortBy extends SongsLibrary{
      * Se implementa un try catch para que la cancion solo dure 15 segundos por versatilidad del
      * proyecto.
      *
-     * @since 
+     * @since
      */
     @Override
     public void playSongList() {
