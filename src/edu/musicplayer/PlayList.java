@@ -13,7 +13,9 @@ import java.util.List;
  * @version: 1.0.0 19-04-2022
  * @since: 1.0.0
  */
-public class PlayList extends SongsLibrary {
+public class PlayList extends SongsLibrary implements IMusicPlayer{
+
+    private String playlistName;
 
     /**
      * Este es el array que almacenara el contenido (nombre y canciones) de
@@ -22,7 +24,7 @@ public class PlayList extends SongsLibrary {
      * Importante: siempre guardara el nombre de la nueva playlist en la
      * primera posición del array.
      */
-    private ArrayList  customList = new ArrayList<>();
+    private List<ArrayList<String>>  customList = new ArrayList<>();
 
     /**
      * Este método recibe una lista de canciones, y crea una nueva playList a
@@ -55,7 +57,7 @@ public class PlayList extends SongsLibrary {
      *      IMPRIME COMO RESULTADO:
      *          ["1ejemplo", "2", "sirenita"]
      *
-     * @param namePlayList Nombre personalizado que tendrá la nueva playlist.
+     * @param playlistName Nombre personalizado que tendrá la nueva playlist.
      * @param idSongs      es un array que contiene los id de las
      *                     canciones seleccionadas
      * @param dinamicarray es el array a partir del cual se han seleccionado
@@ -63,10 +65,10 @@ public class PlayList extends SongsLibrary {
      * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
      * @since: 1.0.0
      */
-    public void addSongs(String namePlayList, ArrayList<String> idSongs,
+    public void addSongs(String playlistName, ArrayList<String> idSongs,
         List<ArrayList<String>> dinamicarray) {
 
-        customList.add(namePlayList);
+        this.playlistName = playlistName;
 
         try {
             for (String id : idSongs) {
@@ -77,23 +79,26 @@ public class PlayList extends SongsLibrary {
                 }
             }
         } catch (NullPointerException e) {
-            throw new NullPointerException();
+            throw e;
         }
+    }
+
+    public String getPlaylistName() {
+        return playlistName;
     }
 
     /**
      * Este método permite acceder al array que contiene la nueva playlist.
      *
-     * @return devuelve un arraylist que en su primera posicion contiene un
-     * String con el título de la canción y a partir de la segunda posición
-     * almacena n cantidad de arrayslist de String. Cada arraylist de string
-     * representa una canción seleccionada por Id, y tiene la siguiente
-     * estructura de atributos por cada canción:
+     * @return devuelve un arraylist con n cantidad de arrayslist de
+     * String. Cada arraylist de string representa una canción seleccionada por
+     * Id, y tiene la siguiente estructura de atributos por cada canción:
      * [Id, titulo, genero, caratula, descripción, duración, fecha].
      * @author Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
      * @since 1.0.0
      */
-    public ArrayList<ArrayList<String>> seePlayList() {
+    @Override
+    public List<ArrayList<String>> getCustomSongList() {
         return customList;
     }
 
@@ -105,7 +110,7 @@ public class PlayList extends SongsLibrary {
      */
     @Override
     public void playSongList() {
-        for (int i = 1; i < customList.size(); i++) {
+        for (int i = 0; i < customList.size(); i++) {
             System.out.println("Reproduciendo..." + customList.get(i));
             try {
                 Thread.sleep(15000);

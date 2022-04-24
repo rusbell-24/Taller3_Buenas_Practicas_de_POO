@@ -25,7 +25,7 @@ import java.util.List;
  *
  * @since 2
  */
-public class SortBy extends SongsLibrary{
+public class SortBy extends SongsLibrary implements IMusicPlayer{
 
     /**
      * @param libraryToShow ArrayList de dimension 2, servira como recipiente dinamico para
@@ -176,7 +176,8 @@ public class SortBy extends SongsLibrary{
      *
      * @since
      */
-    public List<ArrayList<String>> getLibraryToShow() {
+    @Override
+    public List<ArrayList<String>> getCustomSongList() {
         return libraryToShow;
     }
 
@@ -211,6 +212,4 @@ public class SortBy extends SongsLibrary{
             }
         }
     }
-
-
 }
