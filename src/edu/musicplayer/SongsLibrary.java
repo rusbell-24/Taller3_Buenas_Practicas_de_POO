@@ -20,7 +20,7 @@ import java.util.List;
 public abstract class SongsLibrary{
 
     //Campos de la clase
-    private final ArrayList<ArrayList<String>> songList = new ArrayList<>();
+    private final List<ArrayList<String>> songList = new ArrayList<>();
 
     /**
      * Constructor para el array de 15 canciones
@@ -197,7 +197,7 @@ public abstract class SongsLibrary{
      * @author Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
      * @since 1.0.0
      */
-    public ArrayList<ArrayList<String>> getSongList() {
+    public List<ArrayList<String>> getSongList() {
         return songList;
     }
 

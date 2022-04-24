@@ -13,16 +13,15 @@ import java.util.List;
  * @version: 1.0.0 19-04-2022
  * @since: 1.0.0
  */
-public class PlayList extends SongsLibrary implements IMusicPlayer{
+public class Playlist extends SongsLibrary implements IMusicPlayer{
 
+    /**
+     * Esta variable guarda el nombre de cada nueva playlist creada.
+     */
     private String playlistName;
 
     /**
-     * Este es el array que almacenara el contenido (nombre y canciones) de
-     * cada nueva playlist.
-     * <p>
-     * Importante: siempre guardara el nombre de la nueva playlist en la
-     * primera posición del array.
+     * Este es el array que almacenara las canciones de cada nueva playlist.
      */
     private List<ArrayList<String>>  customList = new ArrayList<>();
 
@@ -34,7 +33,7 @@ public class PlayList extends SongsLibrary implements IMusicPlayer{
      * Ejemplo:
      *      PlayList primeraPlayList = new PlayList();
      *      <p>
-     *      String nombrePlayList = "1ejemplo";
+     *      String nombrePlayList = "ejemplo1";
      *      ArrayList cancion1 = new ArrayList<>();
      *      ArrayList cancion2 = new ArrayList<>();
      *      List<ArrayList<String>> arrayDinamico = new ArrayList<>();
@@ -50,12 +49,14 @@ public class PlayList extends SongsLibrary implements IMusicPlayer{
      *      <p>
      *      idCanciones.add("2");
      *      <p>
-     *      primeraPlayList.addSongs(nombrePlayList, idCanciones, arrayDinamico);
+     *      primeraPlayList.addSongs(nombrePlayList,idCanciones,arrayDinamico);
      *      <p>
-     *      System.out.println(primeraPlayList.seePlayList);
+     *      System.out.println(primeraPlayList.getPlaylistName());
+     *      System.out.println(primeraPlayList.getCustomSongList()());
      *      <p>
      *      IMPRIME COMO RESULTADO:
-     *          ["1ejemplo", "2", "sirenita"]
+     *          ["ejemplo1"]
+     *          ["2", "sirenita"]
      *
      * @param playlistName Nombre personalizado que tendrá la nueva playlist.
      * @param idSongs      es un array que contiene los id de las
@@ -65,8 +66,10 @@ public class PlayList extends SongsLibrary implements IMusicPlayer{
      * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
      * @since: 1.0.0
      */
-    public void addSongs(String playlistName, ArrayList<String> idSongs,
-        List<ArrayList<String>> dinamicarray) {
+    public void addSongs(
+            String playlistName,
+            ArrayList<String> idSongs,
+            List<ArrayList<String>> dinamicarray) {
 
         this.playlistName = playlistName;
 
@@ -83,6 +86,13 @@ public class PlayList extends SongsLibrary implements IMusicPlayer{
         }
     }
 
+    /**
+     * Este método permite acceder al nombre de la playlist.
+     *
+     * @return retorna un String con el nombre de la playlist.
+     * @author Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
+     * @since 1.0.0
+     */
     public String getPlaylistName() {
         return playlistName;
     }
@@ -90,12 +100,12 @@ public class PlayList extends SongsLibrary implements IMusicPlayer{
     /**
      * Este método permite acceder al array que contiene la nueva playlist.
      *
-     * @return devuelve un arraylist con n cantidad de arrayslist de
-     * String. Cada arraylist de string representa una canción seleccionada por
+     * @return devuelve un list con n cantidad de arrayslist de String. Cada
+     * arraylist de string representa una canción seleccionada por
      * Id, y tiene la siguiente estructura de atributos por cada canción:
      * [Id, titulo, genero, caratula, descripción, duración, fecha].
-     * @author Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
-     * @since 1.0.0
+     * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
+     * @since: 1.0.0
      */
     @Override
     public List<ArrayList<String>> getCustomSongList() {

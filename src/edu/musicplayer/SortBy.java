@@ -120,12 +120,8 @@ public class SortBy extends SongsLibrary implements IMusicPlayer{
                 return o1.get(a).compareTo(o2.get(a));
             }
         });
-        for (ArrayList song: libraryToShow) {
-            System.out.println(song);
-        }
-
-
     }
+
     /**
      * Este metodo organiza en orden descendente el ArrayList de segunda dimension que se le entregue
      * Recibe en este caso libraryToShow y lo retorna organizado segun lo que se le pida con el @param a int
@@ -160,11 +156,6 @@ public class SortBy extends SongsLibrary implements IMusicPlayer{
                 return o2.get(a).compareTo(o1.get(a));
             }
         });
-        for (ArrayList song: libraryToShow) {
-            System.out.println(song);
-        }
-
-
     }
 
     /**
