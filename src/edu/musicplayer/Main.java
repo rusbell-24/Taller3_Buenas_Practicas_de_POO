@@ -51,11 +51,16 @@ public class Main {
                 seeLibrary.setLibraryToShowToSongList();
 
                 System.out.println("_______Opciones______");
-                System.out.println("1. Ordenar por generos");
+                System.out.println("1. Ordenar por generos de la A a la Z");
+                System.out.println("2. Ordenar por generos de la Z a la A");
                 System.out.println(
-                        "2. Ordenar alfabeticamente por nombre de cancion");
-                System.out.println("3. Ordenar por duracion de cancion");
-                System.out.println("4. Ordenar por año\n");
+                        "3. Ordenar alfabeticamente por nombre de cancion");
+                System.out.println(
+                        "4. Ordenar alfabeticamente de abajo hacia arriba por nombre de cancion");
+                System.out.println("5. Ordenar por duracion de cancion ascendente");
+                System.out.println("6. Ordenar por duracion de cancion descendente");
+                System.out.println("7. Ordenar por año ascendente");
+                System.out.println("8. Ordenar por año descendente\n");
                 System.out.println("Ingrese su opcion: ");
                 secondLevelOptions = userData.next();
                 switch (secondLevelOptions) {
@@ -66,18 +71,39 @@ public class Main {
                         dinamicArray = seeLibrary.getCustomSongList();
                         break;
                     case "2":
+                        seeLibrary.setToAlphabeticGenders();
+                        seeLibrary.sortByGender();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        break;
+                    case "3":
                         seeLibrary.setToAlphabeticNames();
                         seeLibrary.ascendentSort();
                         dinamicArray = seeLibrary.getCustomSongList();
                         break;
-                    case "3":
+                    case "4":
+                        seeLibrary.setToAlphabeticNames();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        break;
+                    case "5":
                         seeLibrary.setToSongDuration();
                         seeLibrary.ascendentSort();
                         dinamicArray = seeLibrary.getCustomSongList();
                         break;
-                    case "4":
+                    case "6":
+                        seeLibrary.setToSongDuration();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        break;
+                    case "7":
                         seeLibrary.setToYear();
                         seeLibrary.ascendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        break;
+                    case "8":
+                        seeLibrary.setToYear();
+                        seeLibrary.descendentSort();
                         dinamicArray = seeLibrary.getCustomSongList();
                         break;
                 }
