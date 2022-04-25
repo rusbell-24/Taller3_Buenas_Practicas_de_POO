@@ -3,6 +3,7 @@ package edu.musicplayer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 /**
  * ------------------------------------IMPORTANTEEE------------------------------------
  * Cambiar datos de version y de since, en toda la clase y los metodos
@@ -30,41 +31,18 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args){
+        menu();
+    }
 
-        /**
-         * @param firstLevelOptions,secondLevelOptions,thirdLevelOptions Strings
-         * Se crean variables que se usaran en el mecanismo de menus que se le mostrara al Usuario.
-         * Tenemos dos submenus por lo que se creo una variable para cada nivel de profundidad de menu
-         * En cada nivel se utiliza su determinada variable para realizar una determinada accion ya sea
-         * con un if else o con un switch case
-         *
-         * ex:  Menu principal:
-         *          if firstLevelOptions = 1 {
-         *                  Muestre Segundo Menu:
-         *                          if secondLevelOptions = 1 {
-         *                                  Muestre Tercer Menu:
-         *                                      - opcion 1
-         *                                      - opcion 2
-         *                                      - etc..
-         *                           }
-         *          }
-         *          if firstLevelOptions = 2 {
-         *                  boolean exit = True;
-         *                  Salga del sistema;
-         *          }
-         *
-         * @param exit boolean
-         * Se utilizo una lista de ArrayList dinamica, dinamicArray, para poder lograr versatilidad
-         * entre las funciones del menu y los metodos de diferentes clases
-         *
-         * @param userData
-         * Variable para guardar la respuesta del Usuario a un dado menu
-         */
+    public static void menu(){
         String firstLevelOptions;
         String secondLevelOptions;
         String thirdLevelOptions;
         boolean exit = false;
-        List<ArrayList<String>> dinamicArray = new ArrayList<>();
+
+        List<ArrayList<String>> dinamicArray;
+        PlaylistStore savePlaylist = new PlaylistStore();
+
         Scanner userData = new Scanner(System.in);
 
         /**
@@ -72,15 +50,9 @@ public class Main {
          * primer menu o menu principal
          */
         do{
-            System.out.println("Bienvenido a nuestro reproductor de musica \n");
-            System.out.println("-----------------MENU---------------\n");
-            System.out.println("1. Ver biblioteca");
-            System.out.println("2. Reproducir Biblioteca");
-            System.out.println("3. Ordenar canciones");
-            System.out.println("4. Crear Playlist");
-            System.out.println("5. Salir\n");
+            showMenu();
 
-            System.out.println("Ingrese su opción: ");
+            firstLevelOptions = userData.next();
 
             /**
              * Se registra la respuesta del Usuario al menu principal
@@ -93,33 +65,28 @@ public class Main {
             dinamicArray = seeLibrary.getSongList();
             seeLibrary.setLibraryToShowToSongList();
 
+            dinamicArray = seeLibrary.getSongList();
+
             if (firstLevelOptions.equals("1")) {
-                /**
-                 * 1. Ver biblioteca
-                 */
+                System.out.println(
+                        "________Biblioteca General De Canciones______\n"
+                );
+
                 seeLibrary.setLibraryToShowToSongList();
                 for (ArrayList song : seeLibrary.getSongList()) {
                     System.out.println(song);
                 }
-            }else if (firstLevelOptions.equals("2")) {
-                /**
-                 * 2. Reproducir Biblioteca
-                 */
+            }
+            else if (firstLevelOptions.equals("2")) {
                 seeLibrary.setLibraryToShowToSongList();
                 seeLibrary.playSongList();
-            }else if (firstLevelOptions.equals("3")) {
-                /**
-                 * 3. Ordenar canciones e ingresar al segundo menu
-                 *
-                 */
+            }
+            else if (firstLevelOptions.equals("3")) {
+
                 seeLibrary.setLibraryToShowToSongList();
 
-                System.out.println("_______Opciones______");
-                System.out.println("1. Ordenar por generos");
-                System.out.println("2. Ordenar alfabeticamente por nombre de cancion");
-                System.out.println("3. Ordenar por duracion de cancion");
-                System.out.println("4. Ordenar por año\n");
-                System.out.println("Ingrese su opcion: ");
+                showSortMenu();
+
                 secondLevelOptions = userData.next();
 
                 /**
@@ -133,38 +100,58 @@ public class Main {
                         seeLibrary.setToAlphabeticGenders();
                         seeLibrary.sortByGender();
                         seeLibrary.ascendentSort();
-                        dinamicArray = seeLibrary.getLibraryToShow();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
                         break;
                     case "2":
-                        seeLibrary.setToAlphabeticNames();
-                        seeLibrary.ascendentSort();
-                        dinamicArray = seeLibrary.getLibraryToShow();
+                        seeLibrary.setToAlphabeticGenders();
+                        seeLibrary.sortByGender();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
                         break;
                     case "3":
-                        seeLibrary.setToSongDuration();
+                        seeLibrary.setToAlphabeticNames();
                         seeLibrary.ascendentSort();
-                        dinamicArray = seeLibrary.getLibraryToShow();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
                         break;
                     case "4":
+                        seeLibrary.setToAlphabeticNames();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
+                        break;
+                    case "5":
+                        seeLibrary.setToSongDuration();
+                        seeLibrary.ascendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
+                        break;
+                    case "6":
+                        seeLibrary.setToSongDuration();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
+                        break;
+                    case "7":
                         seeLibrary.setToYear();
                         seeLibrary.ascendentSort();
-                        dinamicArray = seeLibrary.getLibraryToShow();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
+                        break;
+                    case "8":
+                        seeLibrary.setToYear();
+                        seeLibrary.descendentSort();
+                        dinamicArray = seeLibrary.getCustomSongList();
+                        showSongs(dinamicArray);
                         break;
                 }
-                /**
-                 * Ahora el Usuario debe definir que accion se tomara con los datos organizados previamente
-                 * Aqui se ingresa al tercer menu.
-                 */
-                System.out.println("----------Opciones---------");
-                System.out.println("1.Reproducir Lista ordenada");
-                System.out.println("2.Reproducir solo salsa");
-                System.out.println("3.Reproducir solo Rock en español");
-                System.out.println("4.Reproducir solo Urbano latino");
-                System.out.println("5.Crear playlist");
-                System.out.println("6.salir\n");
 
-                System.out.println("Ingrese su opcion: ");
+                showPlaybackMenuByOrder();
+
                 secondLevelOptions = userData.next();
+
                 switch (secondLevelOptions) {
                     case "1":
                         seeLibrary.playSongList();
@@ -185,11 +172,77 @@ public class Main {
                         seeLibrary.playSongList();
                         break;
                     case "5":
-                        firstLevelOptions = "4";
+                        firstLevelOptions = "5";
                         break;
                 }
-            System.out.println(firstLevelOptions);
-            }if (firstLevelOptions.equals("4")) {
+                System.out.println(firstLevelOptions);
+            }else if (firstLevelOptions.equals("4")){
+                if(savePlaylist.getStore().size() > 0){
+                    showPlaylistStore(savePlaylist.getStore());
+                    do {
+                        int idPlaylist;
+                        playlistOptionsMenu();
+                        secondLevelOptions = userData.next();
+                        if (!secondLevelOptions.equals("4")) {
+                            switch (secondLevelOptions) {
+                                case "1":
+                                    showPlaylistStore(savePlaylist.getStore());
+                                    System.out.println(
+                                            "\nIngrese id de la playlist: "
+                                    );
+                                    idPlaylist = userData.nextInt();
+                                    showSongs(savePlaylist.getStore().
+                                            get(idPlaylist - 1).
+                                            getCustomSongList());
+                                    break;
+                                case "2":
+                                    showPlaylistStore(savePlaylist.getStore());
+                                    System.out.println(
+                                            "\nIngrese id de la playlist: "
+                                    );
+                                    idPlaylist = userData.nextInt();
+                                    savePlaylist.getStore().get(idPlaylist-1).
+                                            playSongList();
+                                    break;
+                                case "3":
+                                    if (savePlaylist.getStore().size() > 0) {
+                                        showPlaylistStore(
+                                                savePlaylist.getStore()
+                                        );
+                                        System.out.println(
+                                                "\nIngrese id de la playlist: "
+                                        );
+                                        idPlaylist = userData.nextInt();
+                                        try {
+                                            savePlaylist.deletePlaylist(
+                                                    idPlaylist
+                                            );
+                                            System.out.println(
+                                                    "Borrado Exitoso.........\n"
+                                            );
+                                            secondLevelOptions = "4";
+                                        } catch (Exception e) {
+                                            System.out.println(
+                                                    "El id es incorrecto.....\n"
+                                            );
+                                        }
+                                    }else{
+                                    System.out.println(
+                                            "No existe ninguna playlist"
+                                    );
+                                }
+                                    break;
+                            }
+                        }
+                    }while (!secondLevelOptions.equals("4"));
+
+                }else{
+                    System.out.println(
+                            "No tienes ninguna playlist Creada...........\n\n"
+                    );
+                }
+
+            }if (firstLevelOptions.equals("5")) {
                 String namePlayList;
                 String idSong;
                 boolean createPlayList = false;
@@ -197,18 +250,18 @@ public class Main {
 
                 ArrayList<String> idSongs = new ArrayList<>();
 
-                PlayList newPlayList = new PlayList();
+                Playlist newPlayList = new Playlist();
 
-                System.out.println("----Biblioteca General De Canciones-----");
-                for (ArrayList<String> songElement : dinamicArray) {
-                    System.out.println("=> Id: " + songElement.get(0) + " Titulo: " + songElement.get(1));
-                }
+                System.out.println("----Biblioteca De Canciones----\n");
+                showSongs(dinamicArray);
 
-                System.out.println("Nombre de la nueva playlist: ");
+                System.out.println("\nNombre de la nueva playlist: ");
                 namePlayList = userData.next();
 
                 do {
-                    System.out.println("Ingrese el id de la cancion a añadir o una letra para terminar: ");
+                    System.out.println("Ingrese el id de la cancion a" +
+                            " añadir o una letra para terminar: ");
+
                     idSong = userData.next();
 
                     if (idSong.matches("[+-]?\\d*(\\.\\d+)?")) {
@@ -222,42 +275,80 @@ public class Main {
 
                 if (createPlayList) {
                     try {
-                        newPlayList.addSongs(namePlayList, idSongs, dinamicArray);
-                        System.out.println("Has creado una playlist nueva...............");
+                        newPlayList.addSongs(
+                                namePlayList,
+                                idSongs,
+                                dinamicArray);
+
+                        savePlaylist.setStore(newPlayList);
+                        System.out.println("Has creado una playlist nueva....");
 
                         do {
-                            System.out.println("_____Opciones de PlayList_____");
-                            System.out.println("1. Ver");
-                            System.out.println("2. Reproducir ");
-                            System.out.println("3. Salir\n");
-                            System.out.println("Que deseas hacer: ");
-
+                            playlistOptionsMenu();
                             thirdLevelOptions = userData.next();
 
                             switch (thirdLevelOptions) {
                                 case "1":
-                                    ArrayList<ArrayList<String>> seeSongs = newPlayList.seePlayList();
-                                    System.out.println("_______Lista de reproduccion *** " + seeSongs.get(0) + "***_______");
-                                    for (int i = 1; i < seeSongs.size(); i++) {
-                                        System.out.println("id: " + seeSongs.get(i).get(0) + " titulo: " + seeSongs.get(i).get(1));
-                                    }
+                                    List<ArrayList<String>> seeSongs =
+                                            newPlayList.getCustomSongList();
+
+                                    System.out.println(
+                                            "______Lista de reproduccion *** " +
+                                            newPlayList.getPlaylistName() +
+                                            " ***_______");
+
+                                    showSongs(seeSongs);
                                     System.out.println("Fin lista..........");
                                     break;
                                 case "2":
                                     newPlayList.playSongList();
                                     break;
+                                case "3":
+                                    int IdPlaylistToDelete;
+                                    if (savePlaylist.getStore().size() > 0){
+                                        showPlaylistStore(
+                                                savePlaylist.getStore()
+                                        );
+                                        System.out.println("\nIngrese id de " +
+                                                " la playlist a borrar: ");
+                                        IdPlaylistToDelete = userData.nextInt();
+                                        try {
+                                            savePlaylist.deletePlaylist(
+                                                    IdPlaylistToDelete);
+                                            System.out.println(
+                                                    "Borrado exitoso........\n"
+                                            );
+                                            thirdLevelOptions = "4";
+                                        }catch (Exception e){
+                                            System.out.println(
+                                                    "El id es incorrecto.....\n"
+                                            );
+                                        }
+                                    }else{
+                                        System.out.println(
+                                                "No existe ninguna playlist...."
+                                        );
+                                    }
+
+
+                                    showPlaylistStore(savePlaylist.getStore());
+                                    break;
 
                             }
-                        } while (!(thirdLevelOptions.equalsIgnoreCase("3")));
+                        } while (!(thirdLevelOptions.equalsIgnoreCase("4")));
 
                     } catch (NullPointerException e) {
-                        System.out.println("\nEstamos presentando inconvenientes con la lista de Canciones:::::::::::::\n");
-                        System.out.println("INTENTE EN OTRO MOMENTO:::::::::::::\n");
+                        System.out.println(
+                                "\nEstamos presentando inconvenientes con la" +
+                                " lista de Canciones:::::::::::::\n");
+
+                        System.out.println("INTENTE EN OTRO MOMENTO::::::::\n");
                     }
                 }else{
-                    System.out.println("\nNo seleccionaste ninguna canción......\n\n");
+                    System.out.println(
+                            "\nNo seleccionaste ninguna canción......\n\n");
                 }
-            }else if (firstLevelOptions.equals("5")) {
+            }else if (firstLevelOptions.equals("6")) {
                 System.out.println("Apagando reproductor de musica......");
                 exit = true;
             }
@@ -265,5 +356,85 @@ public class Main {
         }while (!exit);
 
 
+    }
+
+    private static void showPlaylistStore(List<Playlist> playlists) {
+        System.out.println("_________PLAYLISTS_________\n");
+        for ( int i = 0; i < playlists.size(); i++) {
+            System.out.println(
+                    "Id: " + (i+1) +
+                            " -----nombre de la playlist: " + playlists.
+                            get(i).getPlaylistName());
+        }
+    }
+
+
+    private static void showMenu() {
+        System.out.println("Bienvenido a nuestro reproductor de musica \n");
+        System.out.println(" ___________________MENU__________________");
+        System.out.println("| --------------------------------------- |");
+        System.out.println("||        1. Ver biblioteca              ||");
+        System.out.println("||        2. Reproducir Biblioteca       ||");
+        System.out.println("||        3. Ordenar canciones           ||");
+        System.out.println("||        4. Ver mis Playlist            ||");
+        System.out.println("||        5. Crear Playlist              ||");
+        System.out.println("||        6. Salir                       ||");
+        System.out.println("|_________________________________________|");
+        System.out.println("| Ingrese su opción:                      |");
+        System.out.println("|_________________________________________|\n");
+    }
+
+    private static void showSortMenu() {
+        System.out.println(" ___________________Opciones____________________");
+        System.out.println("|Ordenar Por: __________________________________|");
+        System.out.println("| 1. Generos de la A a la Z                     |");
+        System.out.println("| 2. Generos de la Z a la A                     |");
+        System.out.println("| 3. Alfabeticamente por nombre de canción      |");
+        System.out.println("| 4. Alf.. de abajo-arriba por nombre de canción|");
+        System.out.println("| 5. Duracion de cancion ascendente             |");
+        System.out.println("| 6. Duracion de cancion descendente            |");
+        System.out.println("| 7. Año ascendente                             |");
+        System.out.println("| 8. Año descendente                            |");
+        System.out.println("|_______________________________________________|");
+        System.out.println("|  Ingrese su opción:                           |");
+        System.out.println("|_______________________________________________|");
+    }
+
+    private static void playlistOptionsMenu(){
+        System.out.println(" \n_____Opciones de PlayList_____");
+        System.out.println("| _____________________________|");
+        System.out.println("||  1. Ver                    ||");
+        System.out.println("||  2. Reproducir             ||");
+        System.out.println("||  3. Borrar                 ||");
+        System.out.println("||  4. Salir                  ||");
+        System.out.println("||____________________________||");
+        System.out.println("| Que deseas hacer:            |");
+        System.out.println("|______________________________|\n");
+    }
+
+    private static void showPlaybackMenuByOrder() {
+        System.out.println("________________Opciones__________________");
+        System.out.println("| --------------------------------------- |");
+        System.out.println("||  1.Reproducir Lista ordenada          ||");
+        System.out.println("||  2.Reproducir solo salsa              ||");
+        System.out.println("||  3.Reproducir solo Rock en español    ||");
+        System.out.println("||  4.Reproducir solo Urbano latino      ||");
+        System.out.println("||  5.Crear playlist                     ||");
+        System.out.println("||  6.salir                              ||");
+        System.out.println("||_______________________________________||");
+        System.out.println("| Ingrese su opcion:                      |");
+        System.out.println("|_________________________________________|");
+    }
+
+    private static void showSongs(List<ArrayList<String>> songs){
+        for (int i = 0; i < songs.size(); i++) {
+            System.out.println(
+                    " => " +
+                    " Id: " + songs.get(i).get(0) + "_______" +
+                    " Titulo: " + songs.get(i).get(1) + "_______" +
+                    " Genero: " + songs.get(i).get(2) + "_______" +
+                    " Duracion: " + songs.get(i).get(5) + "_______" +
+                    " Fecha: " + songs.get(i).get(6));
+        }
     }
 }

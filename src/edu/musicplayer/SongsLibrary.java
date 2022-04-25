@@ -53,7 +53,7 @@ public abstract class SongsLibrary{
         song2.add("2");
         song2.add("Una Aventura");
         song2.add("Salsa");
-        song2.add("xxxxxxxx");
+        song2.add("https://bit.ly/3Lht9SM");
         song2.add("Salsa clásica del Grupo Niche");
         song2.add("6.00");
         song2.add("2010.03.25");
@@ -61,7 +61,7 @@ public abstract class SongsLibrary{
         song3.add("3");
         song3.add("De Musica Ligera");
         song3.add("Rock En Español");
-        song3.add("xxxxxxxx");
+        song3.add("https://bit.ly/3OylTE9");
         song3.add("Rock en español de la agrupación Soda Stereo");
         song3.add("4.49");
         song3.add("2012.03.20");
@@ -69,7 +69,7 @@ public abstract class SongsLibrary{
         song4.add("4");
         song4.add("Donde estés llegaré");
         song4.add("Urbano latino");
-        song4.add("xxxxxxxx");
+        song4.add("https://bit.ly/3LeX7qq");
         song4.add("Reggaeton clásico");
         song4.add("3.49");
         song4.add("2011");
@@ -77,7 +77,7 @@ public abstract class SongsLibrary{
         song5.add("5");
         song5.add("Pensando En Ti");
         song5.add("Rock En Español");
-        song5.add("xxxxxxxx");
+        song5.add("https://bit.ly/3vyoghy");
         song5.add("Rock enespañol de la agrupación Mago de Oz");
         song5.add("3.48");
         song5.add("2011.12.05");
@@ -85,7 +85,7 @@ public abstract class SongsLibrary{
         song6.add("6");
         song6.add("Lloraras");
         song6.add("Salsa");
-        song6.add("xxxxxxxx");
+        song6.add("https://bit.ly/3vIkSk6");
         song6.add("Salsa clasica de Oscar D'Leon");
         song6.add("3.50");
         song6.add("2018.04.20");
@@ -93,7 +93,7 @@ public abstract class SongsLibrary{
         song7.add("7");
         song7.add("El doctorado");
         song7.add("Urbano latino");
-        song7.add("xxxxxxxx");
+        song7.add("https://bit.ly/37GYAaC");
         song7.add(
         "Reggaeton clásico de tony dize con su albun la melodia de la calle");
         song7.add("4.48");
@@ -102,7 +102,7 @@ public abstract class SongsLibrary{
         song8.add("8");
         song8.add("La Rebelión");
         song8.add("Salsa");
-        song8.add("xxxxxxxx");
+        song8.add("https://bit.ly/3LfctLN");
         song8.add("Salsa clasica del Joe Arroyo");
         song8.add("4.45");
         song8.add("2012.07.14");
@@ -110,7 +110,7 @@ public abstract class SongsLibrary{
         song9.add("9");
         song9.add("Entre Dos Tierras");
         song9.add("Rock En Español");
-        song9.add("xxxxxxxx");
+        song9.add("https://bit.ly/37HmMcX");
         song9.add("Rock enespañol de la agrupación Heroes Del Silencio");
         song9.add("6.09");
         song9.add("2015.10.02");
@@ -118,7 +118,7 @@ public abstract class SongsLibrary{
         song10.add("10");
         song10.add("Salió el sol");
         song10.add("Urbano latino ");
-        song10.add("xxxxxxxx");
+        song10.add("https://bit.ly/3MpbWXN");
         song10.add("Reggaeton clásico de Don Omar, con su album Salió El Sol");
         song10.add("5.30");
         song10.add("2009.12.25");
@@ -126,7 +126,7 @@ public abstract class SongsLibrary{
         song11.add("11");
         song11.add("Nubes Negras");
         song11.add("Rock En Español");
-        song11.add("xxxxxxxx");
+        song11.add("https://bit.ly/3xQ28C3");
         song11.add("Rock enespañol de la agrupación Los De Adentro");
         song11.add("4.07");
         song11.add("2012.03.13");
@@ -135,7 +135,7 @@ public abstract class SongsLibrary{
         song12.add("12");
         song12.add("Flor Pálida ");
         song12.add("Salsa");
-        song12.add("xxxxxxxx");
+        song12.add("https://bit.ly/3k7KNfP");
         song12.add("Salsa de Marc Anthony ");
         song12.add("4.57");
         song12.add("2014.10.17");
@@ -144,7 +144,7 @@ public abstract class SongsLibrary{
         song13.add("13");
         song13.add("Luna ");
         song13.add("Urbano latino");
-        song13.add("xxxxxxxx");
+        song13.add("https://bit.ly/3k5NYon");
         song13.add(
         "Reggaeton clásico de Don Omar, en su album Alex Gargolas ");
         song13.add("3.14");
@@ -154,7 +154,7 @@ public abstract class SongsLibrary{
         song14.add("14");
         song14.add("Ahora Quien");
         song14.add("Salsa");
-        song14.add("xxxxxxxx");
+        song14.add("https://bit.ly/3vIljLg");
         song14.add("Salsa de Marc Anthony");
         song14.add("5.12");
         song14.add("2009.10.02");
@@ -163,7 +163,7 @@ public abstract class SongsLibrary{
         song15.add("15");
         song15.add("Lamento Boliviano");
         song15.add("Rock En Español");
-        song15.add("xxxxxxxx");
+        song15.add("https://bit.ly/3k5wJDy");
         song15.add("Rock enespañol de la agrupación Enanitos Verdes");
         song15.add("3.46");
         song15.add("2010.08.08");
