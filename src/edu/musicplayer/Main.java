@@ -51,9 +51,6 @@ public class Main {
          */
         do{
             showMenu();
-
-            firstLevelOptions = userData.next();
-
             /**
              * Se registra la respuesta del Usuario al menu principal
              * Se crea un objeto seeLibrary de la clase sortBy que nos ayudara a organizar las canciones
@@ -62,8 +59,6 @@ public class Main {
              */
             firstLevelOptions = userData.next();
             SortBy seeLibrary = new SortBy();
-            dinamicArray = seeLibrary.getSongList();
-            seeLibrary.setLibraryToShowToSongList();
 
             dinamicArray = seeLibrary.getSongList();
 
@@ -71,7 +66,6 @@ public class Main {
                 System.out.println(
                         "________Biblioteca General De Canciones______\n"
                 );
-
                 seeLibrary.setLibraryToShowToSongList();
                 for (ArrayList song : seeLibrary.getSongList()) {
                     System.out.println(song);
@@ -149,7 +143,6 @@ public class Main {
                 }
 
                 showPlaybackMenuByOrder();
-
                 secondLevelOptions = userData.next();
 
                 switch (secondLevelOptions) {
@@ -175,7 +168,6 @@ public class Main {
                         firstLevelOptions = "5";
                         break;
                 }
-                System.out.println(firstLevelOptions);
             }else if (firstLevelOptions.equals("4")){
                 if(savePlaylist.getStore().size() > 0){
                     showPlaylistStore(savePlaylist.getStore());
@@ -330,10 +322,8 @@ public class Main {
                                         );
                                     }
 
-
                                     showPlaylistStore(savePlaylist.getStore());
                                     break;
-
                             }
                         } while (!(thirdLevelOptions.equalsIgnoreCase("4")));
 
@@ -363,8 +353,9 @@ public class Main {
         for ( int i = 0; i < playlists.size(); i++) {
             System.out.println(
                     "Id: " + (i+1) +
-                            " -----nombre de la playlist: " + playlists.
-                            get(i).getPlaylistName());
+                    " -----nombre de la playlist: " + playlists.
+                    get(i).getPlaylistName()
+            );
         }
     }
 

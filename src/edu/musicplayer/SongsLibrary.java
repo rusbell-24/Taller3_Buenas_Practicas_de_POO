@@ -19,7 +19,9 @@ import java.util.List;
  */
 public abstract class SongsLibrary{
 
-    //Campos de la clase
+    /**
+     * Arrayque contiene la biblioteca de canciones
+     */
     private final List<ArrayList<String>> songList = new ArrayList<>();
 
     /**
