@@ -65,6 +65,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Taller3_Buenas_Practicas_de_POO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Taller3_Buenas_Practicas_de_POO" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -82,6 +95,7 @@
       <workItem from="1650469793333" duration="19092000" />
       <workItem from="1650823364116" duration="417000" />
       <workItem from="1650823790741" duration="5201000" />
+      <workItem from="1650862693486" duration="14000" />
     </task>
     <servers />
   </component>
