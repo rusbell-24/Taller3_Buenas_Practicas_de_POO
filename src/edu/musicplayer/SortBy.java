@@ -5,10 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * ------------------------------------IMPORTANTEEE------------------------------------
- * Cambiar datos de version y de since, en toda la clase y los metodos
- */
+
 
 /**
  * La clase SortBy es una clase que tiene herencia de SongsLibrary, donde se encuentra la libreria

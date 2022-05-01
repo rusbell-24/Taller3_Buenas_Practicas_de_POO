@@ -9,8 +9,8 @@ import java.util.List;
  * ellas.
  *
  * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
- * @version: 1.0.1 19-04-2022
- * @since: 1.0.1
+ * @version: 3.03.001 19-04-2022
+ * @since: 3.0.1
  */
 public class PlaylistStore {
 

@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * ------------------------------------IMPORTANTEEE-----------------------------
- * Cambiar datos de version y de since, en toda la clase y los metodos
- */
+
 
 /**
  * En la clase Main se contruye toda la interfaz con la que el usuario va a

@@ -10,8 +10,8 @@ import java.util.List;
  * lista de canciones(playList).
  *
  * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
- * @version: 1.0.0 19-04-2022
- * @since: 1.0.0
+ * @version: 3.03.001 19-04-2022
+ * @since: 2.0.0
  */
 public class Playlist extends SongsLibrary implements IMusicPlayer{
 

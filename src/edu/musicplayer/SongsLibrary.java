@@ -14,7 +14,7 @@ import java.util.List;
  * implementar el método playSongList().
  *
  * @author: Rusbell Ruiz Portocarrero - rusbell.ruiz.p@gmail.com
- * @version: 1.0.0 16-04-2022
+ * @version: 3.03.001 16-04-2022
  * @since: 1.0.0
  */
 public abstract class SongsLibrary{
